@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Kaisei+Tokumin:wght@400;500;700&family=Poppins:wght@300;400;500&display=swap');
+
+:root{
+    --lg-font: 'Kaisei Tokumin', serif;
+    --sm-font: 'Poppins', sans-serif;
+    --red: #d297ff;
+    --primcolor: #ff9bf5;
+    --seccolor: #e9c9ff;
+}   
+* {
+    box-sizing: border-box;
+    
+}
+
+body{
+    padding: 0;
+    margin: 0;
+    background: var(--seccolor);
+    padding: 40px;
+    font-family: var(--sm-font);
+}
+/* login css */
+
+.container{
+    min-height: calc(100vh - 40px * 2);
+    display: grid;
+    grid-template-columns: 50% 50%;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.login-left{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 150px;
+    background-color: white;
+
+}
+
+.login-right{
+    background-color: #efa1ff;
+    display: flex;
+    justify-content: center;
+    
+    
+    
+}
+.login-right-img {
+    width: 80%;
+
+}
+
+.login-header{
+    padding-top: 20px;
+    margin-bottom: 1px;
+}
+
+h1{
+    font-family: var(--lg-font);
+    font-size: 40px;
+    margin-bottom: 5px;
+}
+
+p {
+    opacity: .7;
+}
+
+.login-form{
+    width: 450px;
+
+    
+
+    
+}
+.login-form-content{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+
+.login-form-footer{
+    display: flex;
+    gap: 30px;
+    margin-top: 20px;
+    padding-bottom: 20px;
+
+    
+
+}
+a{
+    flex: 6;
+    border: 1px solid black;
+    border-radius: 6rem;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    color: black;
+    text-decoration: none;
+    height: 50px;
+    
+    
+}
+a:hover{
+    background-color: #eee;
+}
+
+.a-img{
+    padding-right: 6px;
+}
+
+.form-item label:not(.checkboxLabel) {
+    display: inline-block;
+    background-color: white;
+    margin-bottom: 10px;
+    position: absolute;
+    padding: 0px 10px;
+    transform: translate(30px, -10px);
+    font-size: 14px;
+}
+
+input[type='text'],
+input[type='password'] {
+    border: 1px solid black;
+    height: 55px;
+    padding:  0 2rem;
+    width: 100%;
+    outline: none;
+    transition: background .5s;
+    font-size: 14px;
+    border-radius: 100px;
+
+}
+
+.checkbox{
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+}
+
+input[type='checkbox']{
+    width:20px;
+    height: 20px;
+    accent-color: var(--red);
+
+}
+ button{
+    border: none;
+    background: linear-gradient(45deg, var(--primcolor), var(--seccolor));
+    color: white;
+    padding: 10px;
+    border-radius: 100px;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 14px;
+    height: 40px;
+    cursor: pointer;
+ }
+
+ 
+
+ /* Responsive */
+
+ @media (max-width: 1350px){
+    .login-left{
+        padding: 50px !important;
+    }
+    .login-form{
+        width: 100%;
+    }
+
+    .login-form-footer{
+        flex-direction: column;
+        gap: 15px;
+    }
+ }
+
+ @media (max-width:768px){
+    body{
+        padding: 20px;
+    }
+
+    .container {
+        grid-template-columns: auto;
+    }
+
+    .login-right {
+        display: none;
+    }
+ }
