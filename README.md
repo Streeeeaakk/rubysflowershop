@@ -9,7 +9,7 @@
 1. Paste this folder to C://xampp/htdocs/
 2. Run and start XAMPP and Create a database named 'db_company' in localhost/phpMyAdmin
 3. Import databases from folder 'IMPORT_THIS_DATABASE' to db_company
-4. To start, enter localhost/rubysflowershop/public
+4. To start, enter localhost/rubysflowershop-main/public
 
 
 
