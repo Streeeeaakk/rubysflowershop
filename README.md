@@ -26,4 +26,4 @@
 // to add products on a clean database
 1. Register a user
 2. Go to database and edit 'user_level' from 'users' table from '1' to '0' to grant admin previliges.
-# note that admin rights can be granted only on the backend part
+// note that admin rights can be granted only on the backend part
