@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('user_address', function (Blueprint $table) {
             $table -> id('address_ID');
-            $table -> integer('user_ID');
+            $table -> unsignedBigInteger('user_ID');
             $table -> string('address_street');
             $table -> string('address_barangay');
             $table -> string('address_city');
@@ -21,6 +21,9 @@ return new class extends Migration
             $table -> integer('address_zipcode');
             $table -> string('address_country');
             $table -> timestamps();
+
+            $table -> foreign('user_ID')->references('user_ID')->on('users');
+       
 
         });
     }

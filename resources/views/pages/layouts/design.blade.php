@@ -28,7 +28,7 @@
             </a>
 
             <div class = "order-lg-2 nav-btns px-2">
-            <a href="cart.php">
+            <a href="{{ url('/cart') }}">
                 <button type = "button" class = "btn position-relative">
                     <i class = "fa fa-shopping-cart"></i>
                     <span class = "position-absolute top-0 start-100 translate-middle badge bg-primary"></span>
@@ -70,11 +70,15 @@
 
                     @if(Auth::user() -> user_level == 0)
                         <li class = "nav-item px-2 py-2 d-flex align-items-center">
-                            <a class = "nav-link text-uppercase text-dark" href = "addproducts.php">add products</a>
+                            <a class = "nav-link text-uppercase text-dark" href = "{{ url('/product') }}">products</a>
                         </li>
                                 
                          <li class = "nav-item px-2 py-2 d-flex align-items-center">
                             <a class = "nav-link text-uppercase text-dark" href = "customerOrders.php">Customer Pending Orders</a>
+                        </li>
+
+                        <li class = "nav-item px-2 py-2 d-flex align-items-center">
+                            <a class = "nav-link text-uppercase text-dark" href = "{{ url('/sales') }}">Sales</a>
                         </li>
                     @endif
 

@@ -19,24 +19,21 @@
 <link rel = "stylesheet" href = "{{ url('css/profile.css') }}">
 <div class="loginpopup">
     <div class="formPopup" id="popupForm">
-        <form class="formContainer" action="saveprofile.php" method="POST" enctype="multipart/form-data">
+        <form class="formContainer" id="upload-image" action="{{ route('store') }}" method="POST" enctype="multipart/form-data">
+            @csrf
 
-        <div class='form-item'>
-            <img src='images/profile.png' class='rounded-circle clickable' width='280'>
-        </div>
+                <p>&nbsp</p>
+                                
+                                <div class="form-item">
+                                    <input type="text" hidden name="user_ID" placeholder="user_ID" id="user_ID" value='{{ Auth::user()->user_ID }}'>
+                                    <input type="file" name="image" id="selectImage" required/>
+                                </div>
 
-        <p>&nbsp</p>
-                        
-                        <div class="form-item">
-                            <label for="choosefile" class="btn">Select Image</label>
-                            <input type="file" hidden name="choosefile" id="choosefile" required/>
-                        </div>
-
-                        <div class="btn-group">
-                                <input type ="submit" class="btn" value="Save" name="create"/>
-                                <button type="button" class="openButton btn" onclick="closeForm()" >Cancel</button>
-                        </div>
-    </form>
+                                <div class="btn-group">
+                                        <input type ="submit" class="btn" value="Save" name="submit" id="submit"/>
+                                        <button type="button" class="openButton btn" onclick="closeForm()" >Cancel</button>
+                                </div>
+            </form>
 
     </div> 
 </div>
@@ -55,10 +52,19 @@
             <div class="card text-center sidebar">
                 <p>&nbsp</p>
                 <div class="card-body">
+                    
+                    
+                    @if(count($profilepicture) == 0)
+                        <img src='images/profile.png' class='rounded-circle clickable' width='280' onclick='openForm()'>
 
-                <img src='images/profile.png' class='rounded-circle clickable' width='280' onclick='openForm()'>
+                    @elseif(count($profilepicture) > 0)
+                        @foreach($profilepicture as $profilepicture)
+                            <img src='images/profile/{{ $profilepicture->profile_picture_path }}' class='rounded-circle clickable none' width='280px' height='280px' onclick='openForm()'>
+                        @endforeach
+                    @endif 
 
-                <div class="mt-3">
+
+                    <div class="mt-3">
                       {{ Auth::user()->user_fname }} {{ Auth::user()->user_lname}}
                     </div>
                 </div>
@@ -118,24 +124,26 @@
                                     <button class='btnaddress'>Add Address</button>
                                 </a>
                             </div>
+                        </div>
                         
 
                             <div class="col-md text-secondary">
+                                
+                                @if(count($address) > 0)
                                 <select>
-                                    @foreach ($address as $address)
-                                          
-                                    <option value="{{ $address->address_ID }}">
-                                        {{ $address->address_street }}, {{ $address->address_barangay }}, {{ $address->address_city }}
-                                    </option>
-                                        
-                                    @endforeach
+                                        @foreach ($address as $address)
+                                            
+                                        <option value="{{ $address->address_ID }}">
+                                            {{ $address->address_street }}, {{ $address->address_barangay }}, {{ $address->address_city }}
+                                        </option>
+                                            
+                                        @endforeach
                                 </select>
+                                
+                                @endif
 
                                 <p></p>
                             </div>
-                        </div>
-
-                        
                     </div>
 
                     </div>

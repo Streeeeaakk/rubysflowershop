@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Kaisei+Tokumin:wght@400;500;700&family=Poppins:wght@300;400;500&display=swap');
 
+.none {
+    object-fit: cover;
+  }
+  
+
 :root{
     --lg-font: 'Kaisei Tokumin', serif;
     --sm-font: 'Poppins', sans-serif;
@@ -352,7 +357,10 @@ footer a:hover{
 
 
     .formContainer{
-        max-width: 90%;
+        align-items: center;
+        align-content: center;
+        justify-content: center;
+        max-width:100%;
         background-color: #fff;
         padding-top: 20px;
         padding-bottom: 20px;
